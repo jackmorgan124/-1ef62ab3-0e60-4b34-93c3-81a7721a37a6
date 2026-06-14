@@ -6,9 +6,9 @@ import CtaBanner from "@/components/blocks/cta-banner";
 import FooterColumns from "@/components/blocks/footer-columns";
 
 export const metadata: Metadata = {
-  title: "Our Services | Harris Landscaping & Gardens — Paving, Turf, Decking & More in South-West Sydney",
+  title: "Our Services | Harris Landscaping & Gardens",
   description:
-    "Explore our full range of landscaping services including paving, turf installation, decking, retaining walls, garden design, and irrigation. Serving Campbelltown, Camden, Narellan, and Picton.",
+    "Harris Landscaping & Gardens offers premium paving, turf installation, decking, retaining walls, garden design, and irrigation services across South-West Sydney.",
 };
 
 export default function ServicesPage() {
@@ -30,48 +30,12 @@ export default function ServicesPage() {
       />
       <ServicesAlternating
         items={[
-          {
-            image: "/images/service-paving.jpg",
-            title: "Paving",
-            imageAlt: "Professional paving installation in South-West Sydney",
-            description:
-              "From driveways to outdoor entertaining areas, our paving services deliver clean, durable finishes in a range of materials and styles to suit your home.",
-          },
-          {
-            image: "/images/service-turf.jpg",
-            title: "Turf Installation",
-            imageAlt: "Lush turf installation by Harris Landscaping",
-            description:
-              "We supply and lay premium turf varieties suited to South-West Sydney conditions, ensuring even coverage, proper drainage, and long-lasting lushness.",
-          },
-          {
-            image: "/images/service-decking.jpg",
-            title: "Decking",
-            imageAlt: "Custom decking construction in South-West Sydney",
-            description:
-              "Custom-designed timber and composite decks built to complement your home's architecture and handle the demands of daily outdoor living.",
-          },
-          {
-            image: "/images/service-retaining.jpg",
-            title: "Retaining Walls",
-            imageAlt: "Retaining wall construction by Harris Landscaping & Gardens",
-            description:
-              "Engineered for stability and finished for style, our retaining walls solve erosion and level-change challenges while enhancing your garden's appearance.",
-          },
-          {
-            image: "/images/service-garden.jpg",
-            title: "Garden Design & Planting",
-            imageAlt: "Garden design and planting in Campbelltown",
-            description:
-              "Our tailored garden design service combines creative planting schemes with practical layouts to create spaces that are beautiful and easy to maintain.",
-          },
-          {
-            image: "/images/service-irrigation.jpg",
-            title: "Irrigation & Garden Maintenance",
-            imageAlt: "Irrigation system installation by Harris Landscaping",
-            description:
-              "We install smart irrigation systems for efficient watering and offer ongoing maintenance programs to keep your outdoor space looking its best year-round.",
-          },
+          { image: "/images/service-paving.jpg", title: "Paving", imageAlt: "Professional paving installation in South-West Sydney", description: "From driveways to outdoor entertaining areas, our paving services deliver clean, durable finishes in a range of materials and styles to suit your home." },
+          { image: "/images/service-turf.jpg", title: "Turf Installation", imageAlt: "Lush turf installation by Harris Landscaping", description: "We supply and lay premium turf varieties suited to South-West Sydney conditions, ensuring even coverage, proper drainage, and long-lasting lushness." },
+          { image: "/images/service-decking.jpg", title: "Decking", imageAlt: "Custom decking construction in South-West Sydney", description: "Custom-designed timber and composite decks built to complement your home's architecture and handle the demands of daily outdoor living." },
+          { image: "/images/service-retaining.jpg", title: "Retaining Walls", imageAlt: "Retaining wall construction by Harris Landscaping & Gardens", description: "Engineered for stability and finished for style, our retaining walls solve erosion and level-change challenges while enhancing your garden's appearance." },
+          { image: "/images/service-garden.jpg", title: "Garden Design & Planting", imageAlt: "Garden design and planting in Campbelltown", description: "Our tailored garden design service combines creative planting schemes with practical layouts to create spaces that are beautiful and easy to maintain." },
+          { image: "/images/service-irrigation.jpg", title: "Irrigation & Garden Maintenance", imageAlt: "Irrigation system installation by Harris Landscaping", description: "We install smart irrigation systems for efficient watering and offer ongoing maintenance programs to keep your outdoor space looking its best year-round." },
         ]}
         heading="Landscaping Services Tailored to Your Outdoor Vision"
       />
@@ -98,6 +62,7 @@ export default function ServicesPage() {
         phone="02 XXXX XXXX"
         columns={[
           {
+            heading: "Services",
             links: [
               { href: "/services#paving", label: "Paving" },
               { href: "/services#turf-installation", label: "Turf Installation" },
@@ -106,18 +71,18 @@ export default function ServicesPage() {
               { href: "/services#garden-design", label: "Garden Design" },
               { href: "/services#irrigation", label: "Irrigation & Maintenance" },
             ],
-            heading: "Services",
           },
           {
+            heading: "Company",
             links: [
               { href: "/about", label: "About Us" },
               { href: "/gallery", label: "Project Gallery" },
               { href: "/service-areas", label: "Service Areas" },
               { href: "/contact", label: "Contact" },
             ],
-            heading: "Company",
           },
           {
+            heading: "Service Areas",
             links: [
               { href: "/service-areas/campbelltown", label: "Campbelltown" },
               { href: "/service-areas/camden", label: "Camden" },
@@ -126,7 +91,6 @@ export default function ServicesPage() {
               { href: "/service-areas/macarthur", label: "Macarthur Region" },
               { href: "/service-areas/south-west-sydney", label: "South-West Sydney" },
             ],
-            heading: "Service Areas",
           },
         ]}
         copyright="© 2026 Harris Landscaping & Gardens. All rights reserved."
