@@ -6,7 +6,7 @@ import CtaSplit from "@/components/blocks/cta-split";
 import FooterColumns from "@/components/blocks/footer-columns";
 
 export const metadata: Metadata = {
-  title: "Project Gallery | Harris Landscaping & Gardens — Before & After Transformations",
+  title: "Project Gallery | Harris Landscaping & Gardens",
   description:
     "Browse our portfolio of completed landscaping projects across South-West Sydney — from dramatic before-and-after transformations to stunning new-build outdoor spaces in Campbelltown, Camden, Narellan, and Picton.",
 };
@@ -30,26 +30,10 @@ export default function GalleryPage() {
       />
       <GalleryBeforeAfter
         pairs={[
-          {
-            after: "/images/after-1.jpg",
-            label: "Backyard Makeover — Campbelltown",
-            before: "/images/before-1.jpg",
-          },
-          {
-            after: "/images/after-2.jpg",
-            label: "Paving & Turf — Narellan",
-            before: "/images/before-2.jpg",
-          },
-          {
-            after: "/images/after-3.jpg",
-            label: "Retaining Wall & Planting — Camden",
-            before: "/images/before-3.jpg",
-          },
-          {
-            after: "/images/after-4.jpg",
-            label: "Decking & Garden Design — Picton",
-            before: "/images/before-4.jpg",
-          },
+          { after: "/images/after-1.jpg", label: "Backyard Makeover — Campbelltown", before: "/images/before-1.jpg" },
+          { after: "/images/after-2.jpg", label: "Paving & Turf — Narellan", before: "/images/before-2.jpg" },
+          { after: "/images/after-3.jpg", label: "Retaining Wall & Planting — Camden", before: "/images/before-3.jpg" },
+          { after: "/images/after-4.jpg", label: "Decking & Garden Design — Picton", before: "/images/before-4.jpg" },
         ]}
         heading="Before & After Transformations"
         subheading="See the dramatic difference our team makes — from overgrown or bare blocks to stunning, finished outdoor spaces across South-West Sydney."
@@ -84,6 +68,7 @@ export default function GalleryPage() {
         phone="02 XXXX XXXX"
         columns={[
           {
+            heading: "Services",
             links: [
               { href: "/services#paving", label: "Paving" },
               { href: "/services#turf-installation", label: "Turf Installation" },
@@ -92,18 +77,18 @@ export default function GalleryPage() {
               { href: "/services#garden-design", label: "Garden Design" },
               { href: "/services#irrigation", label: "Irrigation & Maintenance" },
             ],
-            heading: "Services",
           },
           {
+            heading: "Company",
             links: [
               { href: "/about", label: "About Us" },
               { href: "/gallery", label: "Project Gallery" },
               { href: "/service-areas", label: "Service Areas" },
               { href: "/contact", label: "Contact" },
             ],
-            heading: "Company",
           },
           {
+            heading: "Service Areas",
             links: [
               { href: "/service-areas/campbelltown", label: "Campbelltown" },
               { href: "/service-areas/camden", label: "Camden" },
@@ -112,7 +97,6 @@ export default function GalleryPage() {
               { href: "/service-areas/macarthur", label: "Macarthur Region" },
               { href: "/service-areas/south-west-sydney", label: "South-West Sydney" },
             ],
-            heading: "Service Areas",
           },
         ]}
         copyright="© 2026 Harris Landscaping & Gardens. All rights reserved."
