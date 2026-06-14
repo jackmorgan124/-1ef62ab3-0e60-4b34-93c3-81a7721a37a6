@@ -6,9 +6,9 @@ import StatsCounter from "@/components/blocks/stats-counter";
 import FooterColumns from "@/components/blocks/footer-columns";
 
 export const metadata: Metadata = {
-  title: "About Us | Harris Landscaping & Gardens — South-West Sydney's Trusted Landscaping Specialists",
+  title: "About Us | Harris Landscaping & Gardens",
   description:
-    "Harris Landscaping & Gardens has been transforming outdoor spaces across South-West Sydney for over 15 years. Fully insured, detail-obsessed, and committed to exceeding expectations.",
+    "Harris Landscaping & Gardens has been transforming outdoor spaces across South-West Sydney for over 15 years. Fully insured, detail-obsessed, and committed to premium results.",
 };
 
 export default function AboutPage() {
@@ -41,21 +41,9 @@ export default function AboutPage() {
       />
       <AboutValues
         items={[
-          {
-            title: "Experience You Can See",
-            description:
-              "With 15-plus years transforming gardens across South-West Sydney, we bring deep local knowledge and a proven portfolio to every project.",
-          },
-          {
-            title: "Clear Communication",
-            description:
-              "We provide detailed quotes, realistic timelines, and regular updates — so you're never left wondering what's happening with your project.",
-          },
-          {
-            title: "Premium Quality, Every Time",
-            description:
-              "We use only high-quality materials and time-tested techniques, ensuring every retaining wall, paved surface, and planted garden looks great for years to come.",
-          },
+          { title: "Experience You Can See", description: "With 15-plus years transforming gardens across South-West Sydney, we bring deep local knowledge and a proven portfolio to every project." },
+          { title: "Clear Communication", description: "We provide detailed quotes, realistic timelines, and regular updates — so you're never left wondering what's happening with your project." },
+          { title: "Premium Quality, Every Time", description: "We use only high-quality materials and time-tested techniques, ensuring every retaining wall, paved surface, and planted garden looks great for years to come." },
         ]}
         heading="Why Homeowners Choose Harris"
         subheading="We combine premium materials, proven expertise, and genuine client care to deliver outdoor spaces that stand the test of time."
@@ -75,6 +63,7 @@ export default function AboutPage() {
         phone="02 XXXX XXXX"
         columns={[
           {
+            heading: "Services",
             links: [
               { href: "/services#paving", label: "Paving" },
               { href: "/services#turf-installation", label: "Turf Installation" },
@@ -83,18 +72,18 @@ export default function AboutPage() {
               { href: "/services#garden-design", label: "Garden Design" },
               { href: "/services#irrigation", label: "Irrigation & Maintenance" },
             ],
-            heading: "Services",
           },
           {
+            heading: "Company",
             links: [
               { href: "/about", label: "About Us" },
               { href: "/gallery", label: "Project Gallery" },
               { href: "/service-areas", label: "Service Areas" },
               { href: "/contact", label: "Contact" },
             ],
-            heading: "Company",
           },
           {
+            heading: "Service Areas",
             links: [
               { href: "/service-areas/campbelltown", label: "Campbelltown" },
               { href: "/service-areas/camden", label: "Camden" },
@@ -103,7 +92,6 @@ export default function AboutPage() {
               { href: "/service-areas/macarthur", label: "Macarthur Region" },
               { href: "/service-areas/south-west-sydney", label: "South-West Sydney" },
             ],
-            heading: "Service Areas",
           },
         ]}
         copyright="© 2026 Harris Landscaping & Gardens. All rights reserved."
