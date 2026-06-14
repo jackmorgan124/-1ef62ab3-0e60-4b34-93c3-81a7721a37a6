@@ -6,7 +6,7 @@ import CtaBanner from "@/components/blocks/cta-banner";
 import FooterColumns from "@/components/blocks/footer-columns";
 
 export const metadata: Metadata = {
-  title: "Service Areas | Harris Landscaping & Gardens — Serving South-West Sydney",
+  title: "Service Areas | Harris Landscaping & Gardens",
   description:
     "Harris Landscaping & Gardens proudly serves Campbelltown, Camden, Narellan, Picton, Macarthur, and the wider South-West Sydney region with premium landscaping services.",
 };
@@ -62,6 +62,7 @@ export default function ServiceAreasPage() {
         phone="02 XXXX XXXX"
         columns={[
           {
+            heading: "Services",
             links: [
               { href: "/services#paving", label: "Paving" },
               { href: "/services#turf-installation", label: "Turf Installation" },
@@ -70,18 +71,18 @@ export default function ServiceAreasPage() {
               { href: "/services#garden-design", label: "Garden Design" },
               { href: "/services#irrigation", label: "Irrigation & Maintenance" },
             ],
-            heading: "Services",
           },
           {
+            heading: "Company",
             links: [
               { href: "/about", label: "About Us" },
               { href: "/gallery", label: "Project Gallery" },
               { href: "/service-areas", label: "Service Areas" },
               { href: "/contact", label: "Contact" },
             ],
-            heading: "Company",
           },
           {
+            heading: "Service Areas",
             links: [
               { href: "/service-areas/campbelltown", label: "Campbelltown" },
               { href: "/service-areas/camden", label: "Camden" },
@@ -90,7 +91,6 @@ export default function ServiceAreasPage() {
               { href: "/service-areas/macarthur", label: "Macarthur Region" },
               { href: "/service-areas/south-west-sydney", label: "South-West Sydney" },
             ],
-            heading: "Service Areas",
           },
         ]}
         copyright="© 2026 Harris Landscaping & Gardens. All rights reserved."
