@@ -7,7 +7,7 @@ import ReviewsCarousel from "@/components/blocks/reviews-carousel";
 import FooterColumns from "@/components/blocks/footer-columns";
 
 export const metadata: Metadata = {
-  title: "Harris Landscaping & Gardens | Premium Outdoor Transformations in South-West Sydney",
+  title: "Harris Landscaping & Gardens | Premium Outdoor Transformations Across South-West Sydney",
   description:
     "From concept to completion, Harris Landscaping & Gardens delivers stunning, custom outdoor spaces built to last. Serving Campbelltown, Camden, Narellan, Picton, and beyond.",
 };
@@ -52,48 +52,18 @@ export default function HomePage() {
       />
       <GalleryBeforeAfter
         pairs={[
-          {
-            after: "/images/after-1.jpg",
-            label: "Backyard Transformation — Campbelltown",
-            before: "/images/before-1.jpg",
-          },
-          {
-            after: "/images/after-2.jpg",
-            label: "Paving & Turf Installation — Narellan",
-            before: "/images/before-2.jpg",
-          },
-          {
-            after: "/images/after-3.jpg",
-            label: "Retaining Wall & Garden Design — Camden",
-            before: "/images/before-3.jpg",
-          },
+          { after: "/images/after-1.jpg", label: "Backyard Transformation — Campbelltown", before: "/images/before-1.jpg" },
+          { after: "/images/after-2.jpg", label: "Paving & Turf Installation — Narellan", before: "/images/before-2.jpg" },
+          { after: "/images/after-3.jpg", label: "Retaining Wall & Garden Design — Camden", before: "/images/before-3.jpg" },
         ]}
         heading="Our Work Speaks for Itself"
         subheading="Browse our portfolio of completed landscaping projects across South-West Sydney — from dramatic before-and-after transformations to stunning new-build outdoor spaces."
       />
       <ReviewsCarousel
         items={[
-          {
-            name: "Sarah M.",
-            rating: "5",
-            review:
-              "Harris Landscaping completely transformed our backyard. Professional, on time, and the results are stunning. Highly recommend!",
-            location: "Campbelltown",
-          },
-          {
-            name: "James T.",
-            rating: "5",
-            review:
-              "From the quote to the final clean-up, the whole experience was seamless. Our new deck and paving look incredible.",
-            location: "Narellan",
-          },
-          {
-            name: "Melissa R.",
-            rating: "5",
-            review:
-              "We had a tricky sloped block and Harris built us a beautiful retaining wall and garden. Couldn't be happier with the outcome.",
-            location: "Camden",
-          },
+          { name: "Sarah M.", rating: "5", review: "Harris Landscaping completely transformed our backyard. Professional, on time, and the results are stunning. Highly recommend!", location: "Campbelltown" },
+          { name: "James T.", rating: "5", review: "From the quote to the final clean-up, the whole experience was seamless. Our new deck and paving look incredible.", location: "Narellan" },
+          { name: "Melissa R.", rating: "5", review: "We had a tricky sloped block and Harris built us a beautiful retaining wall and garden. Couldn't be happier with the outcome.", location: "Camden" },
         ]}
         heading="What Our Clients Are Saying"
       />
@@ -104,6 +74,7 @@ export default function HomePage() {
         phone="02 XXXX XXXX"
         columns={[
           {
+            heading: "Services",
             links: [
               { href: "/services#paving", label: "Paving" },
               { href: "/services#turf-installation", label: "Turf Installation" },
@@ -112,18 +83,18 @@ export default function HomePage() {
               { href: "/services#garden-design", label: "Garden Design" },
               { href: "/services#irrigation", label: "Irrigation & Maintenance" },
             ],
-            heading: "Services",
           },
           {
+            heading: "Company",
             links: [
               { href: "/about", label: "About Us" },
               { href: "/gallery", label: "Project Gallery" },
               { href: "/service-areas", label: "Service Areas" },
               { href: "/contact", label: "Contact" },
             ],
-            heading: "Company",
           },
           {
+            heading: "Service Areas",
             links: [
               { href: "/service-areas/campbelltown", label: "Campbelltown" },
               { href: "/service-areas/camden", label: "Camden" },
@@ -132,7 +103,6 @@ export default function HomePage() {
               { href: "/service-areas/macarthur", label: "Macarthur Region" },
               { href: "/service-areas/south-west-sydney", label: "South-West Sydney" },
             ],
-            heading: "Service Areas",
           },
         ]}
         copyright="© 2026 Harris Landscaping & Gardens. All rights reserved."
