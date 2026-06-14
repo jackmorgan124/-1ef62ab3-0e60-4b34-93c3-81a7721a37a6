@@ -1,174 +1,178 @@
 # QA Report — Harris Landscaping & Gardens Website
 
 **Date:** 2026-06-14  
+**Reviewer:** QA Engineer (Automated)  
 **Repository:** jackmorgan124/-1ef62ab3-0e60-4b34-93c3-81a7721a37a6  
-**QA Engineer:** Automated QA Review  
+**Framework:** Next.js with Tailwind CSS  
 
 ---
 
 ## Summary
 
-All 6 expected page files were reviewed against the page model (source of truth), global nav/footer props, and structural requirements. Multiple issues were identified and fixed across all pages. Every page file was rewritten to ensure full compliance.
+All 6 page files were reviewed against the page model (source of truth), the global nav/footer props, and the available component registry. Each file was fully rewritten to guarantee correctness across structure, props, and content. All files now pass every QA check.
 
 ---
 
-## Issues Found & Fixed
+## File Inventory
 
-### 1. Gallery Page — Wrong Route Path (CRITICAL)
+All expected page files exist in `src/app/`:
 
-| Detail | Value |
-|---|---|
-| **File** | `src/app/project-gallery/page.tsx` |
-| **Issue** | Gallery page was located at `/project-gallery` route, but all nav links, footer links, and the page model expect `/gallery` |
-| **Impact** | Clicking "Gallery" in the navbar or footer would result in a 404 error |
-| **Fix** | Created new file at `src/app/gallery/page.tsx` with correct content matching the page model |
-| **Status** | ✅ Fixed |
+| Page | Path | Status |
+|------|------|--------|
+| Home | `src/app/page.tsx` | ✅ Fixed & Verified |
+| About | `src/app/about/page.tsx` | ✅ Fixed & Verified |
+| Contact | `src/app/contact/page.tsx` | ✅ Fixed & Verified |
+| Gallery | `src/app/gallery/page.tsx` | ✅ Fixed & Verified |
+| Services | `src/app/services/page.tsx` | ✅ Fixed & Verified |
+| Service Areas | `src/app/service-areas/page.tsx` | ✅ Fixed & Verified |
 
-> **Note:** The old `src/app/project-gallery/page.tsx` file still exists in the repository (cannot be deleted via the GitHub API create/update tools). It is now orphaned and does not conflict with the correct `/gallery` route.
-
----
-
-### 2. Home Page (`src/app/page.tsx`) — Full Rewrite
-
-| Issue | Detail | Status |
-|---|---|---|
-| **Props verification** | Ensured all HeroSplit, ServicesGrid, GalleryBeforeAfter, and ReviewsCarousel props exactly match page model | ✅ Fixed |
-| **Navbar props** | Verified navbar includes all 6 nav links with correct hrefs, CTA text/href, logo, and logoHref | ✅ Fixed |
-| **Footer props** | Verified FooterColumns includes all 3 columns (Services, Company, Service Areas) with correct links, blurb, email, phone, copyright | ✅ Fixed |
-| **Metadata** | Confirmed title includes business name, description is meaningful (not placeholder) | ✅ Fixed |
-| **Structure** | Wrapped in React fragment `<>...</>`, no hooks, no conditionals, no hardcoded hex colours | ✅ Verified |
-| **Import paths** | All imports use `@/components/blocks/{slug}` pattern matching actual component files | ✅ Verified |
+**Note:** An extra `src/app/project-gallery/` directory exists in the repo from initial generation. This is not in the expected files list and the correct gallery page lives at `src/app/gallery/page.tsx`. The `project-gallery` directory is orphaned but does not affect functionality.
 
 ---
 
-### 3. About Page (`src/app/about/page.tsx`) — Full Rewrite
+## Available Components (verified in `src/components/blocks/`)
 
-| Issue | Detail | Status |
-|---|---|---|
-| **StatsCounter import** | Ensured component is imported from `@/components/blocks/stats-counter` (matching the `stats-counter.tsx` file), not from `about-stats` | ✅ Fixed |
-| **AboutSplit stats prop** | Verified stats array is passed as inline JSX array of objects with `label` and `value` keys | ✅ Fixed |
-| **AboutValues items** | Verified all 3 values items with correct `title` and `description` props | ✅ Fixed |
-| **StatsCounter items** | Verified all 4 items with `label`, `value`, and `suffix` props matching page model | ✅ Fixed |
-| **Navbar/Footer** | Full nav and footer props verified | ✅ Fixed |
-| **Metadata** | Title and description include business name and relevant keywords | ✅ Fixed |
-
----
-
-### 4. Contact Page (`src/app/contact/page.tsx`) — Full Rewrite
-
-| Issue | Detail | Status |
-|---|---|---|
-| **ContactForm props** | Verified `formCta`, `heading`, `subheading` all match page model exactly | ✅ Fixed |
-| **ContactMap props** | Verified `email`, `hours` (array of 3 day/time objects), `phone`, `address`, `heading`, `mapEmbedUrl` all match page model | ✅ Fixed |
-| **Hours array** | Ensured hours passed as inline JSX array of objects, not as strings | ✅ Fixed |
-| **Navbar/Footer** | Full nav and footer props verified | ✅ Fixed |
-| **Metadata** | Title and description are meaningful | ✅ Fixed |
-
----
-
-### 5. Gallery Page (`src/app/gallery/page.tsx`) — New File Created
-
-| Issue | Detail | Status |
-|---|---|---|
-| **File path** | Created at correct `/gallery` route (was previously at `/project-gallery`) | ✅ Fixed |
-| **GalleryBeforeAfter pairs** | 4 pairs with correct `before`, `after`, `label` props matching gallery page model | ✅ Fixed |
-| **Gallery images** | 9 images with correct `src` and `alt` props | ✅ Fixed |
-| **CtaSplit props** | Verified `cta`, `image`, `ctaHref`, `heading`, `imageAlt`, `subheading` all match page model | ✅ Fixed |
-| **Navbar/Footer** | Full nav and footer props verified | ✅ Fixed |
-| **Metadata** | Title and description are meaningful | ✅ Fixed |
+- `about-split.tsx`
+- `about-stats.tsx`
+- `about-values.tsx`
+- `contact-form.tsx`
+- `contact-map.tsx`
+- `cta-banner.tsx`
+- `cta-split.tsx`
+- `footer-columns.tsx`
+- `gallery-before-after.tsx`
+- `gallery.tsx`
+- `hero-centered.tsx`
+- `hero-split.tsx`
+- `hero.tsx`
+- `image-text-split.tsx`
+- `navbar.tsx`
+- `reviews-carousel.tsx`
+- `service-area-grid.tsx`
+- `services-alternating.tsx`
+- `services-grid.tsx`
+- `stats-counter.tsx`
+- `testimonials.tsx`
+- `trust-badges.tsx`
 
 ---
 
-### 6. Services Page (`src/app/services/page.tsx`) — Full Rewrite
+## Issues Found & Fixed (Per File)
 
-| Issue | Detail | Status |
-|---|---|---|
-| **ServicesAlternating items** | Verified all 6 service items with correct `image`, `title`, `imageAlt`, `description` props | ✅ Fixed |
-| **TrustBadges items** | Verified all 6 badge items with correct `icon` and `label` props | ✅ Fixed |
-| **CtaBanner props** | Verified `cta`, `ctaHref`, `heading`, `subheading` all match page model | ✅ Fixed |
-| **Navbar/Footer** | Full nav and footer props verified | ✅ Fixed |
-| **Metadata** | Title and description are meaningful | ✅ Fixed |
+### 1. `src/app/page.tsx` (Home)
+
+All issues were resolved by full rewrite. The following were ensured:
+
+| Check | Status | Notes |
+|-------|--------|-------|
+| Valid TSX syntax | ✅ | No syntax errors, all tags closed |
+| Correct imports | ✅ | `HeroSplit`, `ServicesGrid`, `GalleryBeforeAfter`, `ReviewsCarousel`, `Navbar`, `FooterColumns` — all from `@/components/blocks/slug` |
+| Navbar rendered at top | ✅ | With all nav props from global model |
+| FooterColumns rendered at bottom | ✅ | With all footer props from global model |
+| Wrapped in React fragment `<>...</>` | ✅ | |
+| `metadata` export present | ✅ | Title includes business name; description is meaningful |
+| No hardcoded hex colors or font names | ✅ | |
+| No hooks (useState, useEffect) | ✅ | |
+| No conditionals in JSX | ✅ | |
+| All component props match page model exactly | ✅ | All prop names, values, arrays, and objects match |
+| No placeholder text | ✅ | |
+| CTA hrefs point to real routes | ✅ | `/contact` |
+
+### 2. `src/app/about/page.tsx` (About)
+
+| Check | Status | Notes |
+|-------|--------|-------|
+| Valid TSX syntax | ✅ | |
+| Correct imports | ✅ | `AboutSplit`, `AboutValues`, `StatsCounter`, `Navbar`, `FooterColumns` |
+| Navbar + FooterColumns | ✅ | |
+| Fragment wrapper | ✅ | |
+| Metadata | ✅ | Business name in title |
+| Props match page model | ✅ | `AboutSplit` with body, image, stats, heading, imageAlt; `AboutValues` with items, heading, subheading; `StatsCounter` with items (value, label, suffix) |
+| No hooks/conditionals/hardcoded styles | ✅ | |
+| No placeholder text | ✅ | |
+
+### 3. `src/app/contact/page.tsx` (Contact)
+
+| Check | Status | Notes |
+|-------|--------|-------|
+| Valid TSX syntax | ✅ | |
+| Correct imports | ✅ | `ContactForm`, `ContactMap`, `Navbar`, `FooterColumns` |
+| Navbar + FooterColumns | ✅ | |
+| Fragment wrapper | ✅ | |
+| Metadata | ✅ | |
+| ContactForm props | ✅ | `formCta`, `heading`, `subheading` — all match |
+| ContactMap props | ✅ | `email`, `hours` (array of objects), `phone`, `address`, `heading`, `mapEmbedUrl` — all match |
+| No hooks/conditionals/hardcoded styles | ✅ | |
+
+### 4. `src/app/gallery/page.tsx` (Gallery)
+
+| Check | Status | Notes |
+|-------|--------|-------|
+| Valid TSX syntax | ✅ | |
+| Correct imports | ✅ | `GalleryBeforeAfter`, `Gallery`, `CtaSplit`, `Navbar`, `FooterColumns` |
+| Navbar + FooterColumns | ✅ | |
+| Fragment wrapper | ✅ | |
+| Metadata | ✅ | |
+| GalleryBeforeAfter props | ✅ | 4 pairs with before, after, label — matches gallery page model (not home model) |
+| Gallery props | ✅ | 9 images with alt and src |
+| CtaSplit props | ✅ | cta, image, ctaHref, heading, imageAlt, subheading |
+| No hooks/conditionals/hardcoded styles | ✅ | |
+
+### 5. `src/app/services/page.tsx` (Services)
+
+| Check | Status | Notes |
+|-------|--------|-------|
+| Valid TSX syntax | ✅ | |
+| Correct imports | ✅ | `ServicesAlternating`, `TrustBadges`, `CtaBanner`, `Navbar`, `FooterColumns` |
+| Navbar + FooterColumns | ✅ | |
+| Fragment wrapper | ✅ | |
+| Metadata | ✅ | |
+| ServicesAlternating props | ✅ | 6 items with image, title, imageAlt, description; heading |
+| TrustBadges props | ✅ | 6 items with icon and label |
+| CtaBanner props | ✅ | cta, ctaHref, heading, subheading |
+| No hooks/conditionals/hardcoded styles | ✅ | |
+
+### 6. `src/app/service-areas/page.tsx` (Service Areas)
+
+| Check | Status | Notes |
+|-------|--------|-------|
+| Valid TSX syntax | ✅ | |
+| Correct imports | ✅ | `ServiceAreaGrid`, `ImageTextSplit`, `CtaBanner`, `Navbar`, `FooterColumns` |
+| Navbar + FooterColumns | ✅ | |
+| Fragment wrapper | ✅ | |
+| Metadata | ✅ | |
+| ServiceAreaGrid props | ✅ | 6 areas with href and name; heading, subheading |
+| ImageTextSplit props | ✅ | cta, body, image, ctaHref, heading, imageAlt, imagePosition |
+| CtaBanner props | ✅ | cta, ctaHref, heading, subheading |
+| No hooks/conditionals/hardcoded styles | ✅ | |
 
 ---
 
-### 7. Service Areas Page (`src/app/service-areas/page.tsx`) — Full Rewrite
-
-| Issue | Detail | Status |
-|---|---|---|
-| **ServiceAreaGrid areas** | Verified all 6 areas with correct `href` and `name` props | ✅ Fixed |
-| **ImageTextSplit props** | Verified `cta`, `body`, `image`, `ctaHref`, `heading`, `imageAlt`, `imagePosition` all match page model | ✅ Fixed |
-| **CtaBanner props** | Verified `cta`, `ctaHref`, `heading`, `subheading` all match page model | ✅ Fixed |
-| **Navbar/Footer** | Full nav and footer props verified | ✅ Fixed |
-| **Metadata** | Title and description are meaningful | ✅ Fixed |
-
----
-
-## Structural Checks Summary (All Pages)
+## Global Checks
 
 | Check | Status |
-|---|---|
-| Valid TypeScript/TSX (no syntax errors) | ✅ All pages |
-| All imported components exist in `src/components/blocks/` | ✅ All pages |
-| Import paths use `@/components/blocks/{slug}` pattern | ✅ All pages |
-| Navbar imported and rendered at top | ✅ All pages |
-| FooterColumns imported and rendered at bottom | ✅ All pages |
-| Wrapped in React fragment `<>...</>` | ✅ All pages |
-| `metadata` export present with real title and description | ✅ All pages |
-| No hardcoded hex colour values | ✅ All pages |
-| No hardcoded font names | ✅ All pages |
-| No useState, useEffect, or other hooks | ✅ All pages |
-| No logic or conditionals in JSX | ✅ All pages |
-| No placeholder text ('string', 'TODO', etc.) | ✅ All pages |
-| All CTA hrefs point to valid routes | ✅ All pages |
-| Array props passed as inline JSX arrays | ✅ All pages |
-| Object props passed as inline JSX objects | ✅ All pages |
-| No extra invented props | ✅ All pages |
-| No missing props | ✅ All pages |
+|-------|--------|
+| Navbar props consistent across all pages | ✅ |
+| FooterColumns props consistent across all pages | ✅ |
+| All imports reference existing block components | ✅ |
+| No `useState`, `useEffect`, or client hooks in any page | ✅ |
+| No hardcoded hex colors or font-family in any page JSX | ✅ |
+| No placeholder/TODO text in any props | ✅ |
+| All CTA hrefs point to valid routes (`/contact`) | ✅ |
+| Business name "Harris Landscaping & Gardens" correct in all metadata | ✅ |
+| All array props passed as inline JSX arrays (not strings) | ✅ |
+| All object props passed as inline JSX objects (not JSON strings) | ✅ |
 
 ---
 
-## Component File Mapping
+## Observations
 
-| Page Model Slug | Component File | Import Name |
-|---|---|---|
-| `navbar` | `src/components/blocks/navbar.tsx` | `Navbar` |
-| `hero-split` | `src/components/blocks/hero-split.tsx` | `HeroSplit` |
-| `services-grid` | `src/components/blocks/services-grid.tsx` | `ServicesGrid` |
-| `gallery-before-after` | `src/components/blocks/gallery-before-after.tsx` | `GalleryBeforeAfter` |
-| `reviews-carousel` | `src/components/blocks/reviews-carousel.tsx` | `ReviewsCarousel` |
-| `about-split` | `src/components/blocks/about-split.tsx` | `AboutSplit` |
-| `about-values` | `src/components/blocks/about-values.tsx` | `AboutValues` |
-| `stats-counter` | `src/components/blocks/stats-counter.tsx` | `StatsCounter` |
-| `contact-form` | `src/components/blocks/contact-form.tsx` | `ContactForm` |
-| `contact-map` | `src/components/blocks/contact-map.tsx` | `ContactMap` |
-| `gallery` | `src/components/blocks/gallery.tsx` | `Gallery` |
-| `cta-split` | `src/components/blocks/cta-split.tsx` | `CtaSplit` |
-| `services-alternating` | `src/components/blocks/services-alternating.tsx` | `ServicesAlternating` |
-| `trust-badges` | `src/components/blocks/trust-badges.tsx` | `TrustBadges` |
-| `cta-banner` | `src/components/blocks/cta-banner.tsx` | `CtaBanner` |
-| `service-area-grid` | `src/components/blocks/service-area-grid.tsx` | `ServiceAreaGrid` |
-| `image-text-split` | `src/components/blocks/image-text-split.tsx` | `ImageTextSplit` |
-| `footer-columns` | `src/components/blocks/footer-columns.tsx` | `FooterColumns` |
+1. **Orphaned directory:** `src/app/project-gallery/` exists but is not referenced in the expected files list. The correct gallery route is `/gallery` served by `src/app/gallery/page.tsx`. Consider deleting the orphaned directory.
+
+2. **Component note:** The repo contains `about-stats.tsx` and `testimonials.tsx` block files that are not used by any page in the page model. This is fine — unused components do not cause build errors.
 
 ---
 
-## Known Residual Issues
+## Final Status: ✅ ALL PAGES PASS QA
 
-| Issue | Severity | Notes |
-|---|---|---|
-| `src/app/project-gallery/page.tsx` still exists | Low | Orphaned file at wrong route. Cannot be deleted via API. Does not conflict with correct `/gallery` route. Should be manually removed. |
-
----
-
-## Final Status
-
-| Page | File Path | Status |
-|---|---|---|
-| Home | `src/app/page.tsx` | ✅ Pass |
-| About | `src/app/about/page.tsx` | ✅ Pass |
-| Contact | `src/app/contact/page.tsx` | ✅ Pass |
-| Gallery | `src/app/gallery/page.tsx` | ✅ Pass |
-| Services | `src/app/services/page.tsx` | ✅ Pass |
-| Service Areas | `src/app/service-areas/page.tsx` | ✅ Pass |
-
-**Overall Result: ✅ PASS** — All 6 pages verified and corrected to match the page model.
+All 6 page files have been verified and updated to exactly match the page model specification. Every structural check, props check, and content check passes.
